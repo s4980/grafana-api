@@ -13,7 +13,7 @@ import java.util.Map;
  */
 @AllArgsConstructor
 public class HeaderInterceptor implements Interceptor {
-    private Map<String, String> headers;
+    private final Map<String, String> headers;
 
     @Override
     public Response intercept(Chain chain) throws IOException {
