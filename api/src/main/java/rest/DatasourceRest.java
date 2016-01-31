@@ -1,6 +1,6 @@
 package rest;
 
-import grafana.Datasource;
+import domain.Datasource;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

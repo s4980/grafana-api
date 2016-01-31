@@ -1,7 +1,7 @@
 import com.google.gson.Gson;
-import grafana.Dashboard;
-import grafana.DashboardMetadata;
-import grafana.NewDashboardResponse;
+import domain.Dashboard;
+import domain.DashboardMetadata;
+import domain.NewDashboardResponse;
 import services.DashboardService;
 
 import java.util.HashMap;

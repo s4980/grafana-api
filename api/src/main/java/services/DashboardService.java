@@ -1,10 +1,10 @@
 package services;
 
+import domain.Dashboard;
+import domain.DashboardMetadata;
+import domain.NewDashboardResponse;
+import domain.SearchDashboardResponse;
 import factories.RestInterfaceFactory;
-import grafana.Dashboard;
-import grafana.DashboardMetadata;
-import grafana.NewDashboardResponse;
-import grafana.SearchDashboardResponse;
 import org.apache.commons.lang.StringUtils;
 import rest.DashboardRest;
 import retrofit2.Response;

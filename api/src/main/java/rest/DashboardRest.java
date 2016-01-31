@@ -1,9 +1,9 @@
 package rest;
 
-import grafana.Dashboard;
-import grafana.DashboardMetadata;
-import grafana.NewDashboardResponse;
-import grafana.SearchDashboardResponse;
+import domain.Dashboard;
+import domain.DashboardMetadata;
+import domain.NewDashboardResponse;
+import domain.SearchDashboardResponse;
 import retrofit2.Call;
 import retrofit2.http.*;
 
