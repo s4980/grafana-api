@@ -1,7 +1,7 @@
 package rest;
 
-import domain.DashboardMetadata;
-import domain.Dashbord;
+import grafana.Dashboard;
+import grafana.DashboardMetadata;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -16,5 +16,5 @@ public interface DashboardRest {
     Call<List<DashboardMetadata>> search(@QueryMap Map<String, String> options);
 
     @GET("dashboards/{slug}")
-    Call<Dashbord> get(@Path("slug") String slug);
+    Call<Dashboard> get(@Path("slug") String slug);
 }

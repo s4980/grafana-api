@@ -1,0 +1,194 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "id": "meta",
+      "type": "object",
+      "properties": {
+        "isStarred": {
+          "id": "isStarred",
+          "type": "boolean"
+        },
+        "type": {
+          "id": "type",
+          "type": "string"
+        },
+        "canSave": {
+          "id": "canSave",
+          "type": "boolean"
+        },
+        "canEdit": {
+          "id": "canEdit",
+          "type": "boolean"
+        },
+        "canStar": {
+          "id": "canStar",
+          "type": "boolean"
+        },
+        "slug": {
+          "id": "slug",
+          "type": "string"
+        },
+        "expires": {
+          "id": "expires",
+          "type": "string"
+        },
+        "created": {
+          "id": "created",
+          "type": "string"
+        },
+        "updated": {
+          "id": "updated",
+          "type": "string"
+        }
+      }
+    },
+    "dashboard": {
+      "id": "dashboard",
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "id": "annotations",
+          "type": "object",
+          "properties": {
+            "list": {
+              "id": "list",
+              "type": "array",
+              "items": {}
+            }
+          }
+        },
+        "editable": {
+          "id": "editable",
+          "type": "boolean"
+        },
+        "hideControls": {
+          "id": "hideControls",
+          "type": "boolean"
+        },
+        "id": {
+          "id": "id",
+          "type": "integer"
+        },
+        "links": {
+          "id": "links",
+          "type": "array",
+          "items": {}
+        },
+        "originalTitle": {
+          "id": "originalTitle",
+          "type": "string"
+        },
+        "rows": {
+          "id": "rows",
+          "type": "array",
+          "items": {
+            "id": "0",
+            "type": "object",
+            "properties": {
+              "collapse": {
+                "id": "collapse",
+                "type": "boolean"
+              },
+              "editable": {
+                "id": "editable",
+                "type": "boolean"
+              },
+              "height": {
+                "id": "height",
+                "type": "string"
+              },
+              "panels": {
+                "id": "panels",
+                "type": "array",
+                "items": {}
+              },
+              "title": {
+                "id": "title",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "schemaVersion": {
+          "id": "schemaVersion",
+          "type": "integer"
+        },
+        "sharedCrosshair": {
+          "id": "sharedCrosshair",
+          "type": "boolean"
+        },
+        "style": {
+          "id": "style",
+          "type": "string"
+        },
+        "tags": {
+          "id": "tags",
+          "type": "array",
+          "items": {}
+        },
+        "templating": {
+          "id": "templating",
+          "type": "object",
+          "properties": {
+            "list": {
+              "id": "list",
+              "type": "array",
+              "items": {}
+            }
+          }
+        },
+        "time": {
+          "id": "time",
+          "type": "object",
+          "properties": {
+            "from": {
+              "id": "from",
+              "type": "string"
+            },
+            "to": {
+              "id": "to",
+              "type": "string"
+            }
+          }
+        },
+        "timepicker": {
+          "id": "timepicker",
+          "type": "object",
+          "properties": {
+            "refresh_intervals": {
+              "id": "refresh_intervals",
+              "type": "array",
+              "items": {
+                "id": "9",
+                "type": "string"
+              }
+            },
+            "time_options": {
+              "id": "time_options",
+              "type": "array",
+              "items": {
+                "id": "8",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "timezone": {
+          "id": "timezone",
+          "type": "string"
+        },
+        "title": {
+          "id": "title",
+          "type": "string"
+        },
+        "version": {
+          "id": "version",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

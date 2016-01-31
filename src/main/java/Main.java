@@ -1,4 +1,4 @@
-import domain.DashboardMetadata;
+import grafana.DashboardMetadata;
 import services.DashboardService;
 
 import java.util.HashMap;

@@ -1,8 +1,8 @@
 package services;
 
-import domain.DashboardMetadata;
-import domain.Dashbord;
 import factories.RestInterfaceFactory;
+import grafana.Dashboard;
+import grafana.DashboardMetadata;
 import rest.DashboardRest;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -36,11 +36,11 @@ public class DashboardService {
         return Collections.emptyList();
     }
 
-    public Dashbord getDashboard(String uri) {
+    public Dashboard getDashboard(String uri) {
         try {
-            final Response<Dashbord> response = dashboardRest.get(uri).execute();
+            final Response<Dashboard> response = dashboardRest.get(uri).execute();
             if (response.isSuccess()) {
-                final Dashbord dashboard = response.body();
+                final Dashboard dashboard = response.body();
                 return dashboard;
             }
         } catch (IOException e) {
