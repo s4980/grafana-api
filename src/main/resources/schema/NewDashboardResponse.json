@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "id": "slug",
+      "type": "string"
+    },
+    "status": {
+      "id": "status",
+      "type": "string"
+    },
+    "version": {
+      "id": "version",
+      "type": "integer"
+    }
+  }
+}

@@ -3,6 +3,9 @@ package services;
 import factories.RestInterfaceFactory;
 import grafana.Dashboard;
 import grafana.DashboardMetadata;
+import grafana.NewDashboardResponse;
+import grafana.SearchDashboardResponse;
+import org.apache.commons.lang.StringUtils;
 import rest.DashboardRest;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -23,7 +26,7 @@ public class DashboardService {
         dashboardRest = retrofit.create(DashboardRest.class);
     }
 
-    public List<DashboardMetadata> searchDashboard(Map<String, String> queryMap) {
+    public List<DashboardMetadata> search(Map<String, String> queryMap) {
         try {
             Response<List<DashboardMetadata>> listResponse = dashboardRest.search(queryMap).execute();
             if (listResponse.isSuccess()) {
@@ -36,16 +39,59 @@ public class DashboardService {
         return Collections.emptyList();
     }
 
-    public Dashboard getDashboard(String uri) {
+    public List<DashboardMetadata> searchAll() {
+        return search(Collections.emptyMap());
+    }
+
+    public SearchDashboardResponse get(String uri) {
         try {
-            final Response<Dashboard> response = dashboardRest.get(uri).execute();
+            final Response<SearchDashboardResponse> response = dashboardRest.get(uri).execute();
             if (response.isSuccess()) {
-                final Dashboard dashboard = response.body();
-                return dashboard;
+                return response.body();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
+
+    public SearchDashboardResponse getHomeDashboard() {
+        return get("home");
+    }
+
+    public boolean delete(String uri) {
+        try {
+            final Response<String> response = dashboardRest.delete(uri).execute();
+            if (response.isSuccess()) {
+                response.body();
+                return StringUtils.contains(response.body(), uri);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public NewDashboardResponse update(Dashboard dashboard, boolean overwrite) {
+        NewDashboardResponse newDasboardResponse = new NewDashboardResponse();
+        newDasboardResponse.setStatus("failed");
+        try {
+            //dashboard.setAdditionalProperty("overwrite", overwrite);
+            final Response<NewDashboardResponse> response = dashboardRest.create(dashboard).execute();
+            if (response.isSuccess()) {
+                return response.body();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return newDasboardResponse;
+    }
+
+    public NewDashboardResponse create(Dashboard dashboard, boolean overwrite) {
+        // To create new dashboard we need to pass dashboard with id = null
+        dashboard.setId(null);
+        return update(dashboard, overwrite);
+    }
+
 }

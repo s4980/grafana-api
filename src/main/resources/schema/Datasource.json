@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "id": {
+      "id": "id",
+      "type": "integer"
+    },
+    "orgId": {
+      "id": "orgId",
+      "type": "integer"
+    },
+    "name": {
+      "id": "name",
+      "type": "string"
+    },
+    "type": {
+      "id": "type",
+      "type": "string"
+    },
+    "access": {
+      "id": "access",
+      "type": "string"
+    },
+    "url": {
+      "id": "url",
+      "type": "string"
+    },
+    "password": {
+      "id": "password",
+      "type": "string"
+    },
+    "user": {
+      "id": "user",
+      "type": "string"
+    },
+    "database": {
+      "id": "database",
+      "type": "string"
+    },
+    "basicAuth": {
+      "id": "basicAuth",
+      "type": "boolean"
+    },
+    "basicAuthUser": {
+      "id": "basicAuthUser",
+      "type": "string"
+    },
+    "basicAuthPassword": {
+      "id": "basicAuthPassword",
+      "type": "string"
+    },
+    "isDefault": {
+      "id": "isDefault",
+      "type": "boolean"
+    },
+    "jsonData": {
+      "id": "jsonData",
+      "type": "null"
+    }
+  }
+}
