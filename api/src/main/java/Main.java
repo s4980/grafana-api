@@ -1,6 +1,7 @@
 import com.google.gson.Gson;
 import domain.Dashboard;
 import domain.DashboardMetadata;
+import domain.NewDashboardRequest;
 import domain.NewDashboardResponse;
 import services.DashboardService;
 
@@ -36,7 +37,10 @@ public class Main {
                 Integer version = dashboard.getVersion();
                 System.out.printf("Version before updating dashboard %s with override flag: %s\n", dashboard.getTitle(), version);
                 dashboard.setVersion(++version);
-                final NewDashboardResponse newDasboardResponse = dashboardService.update(dashboard, true);
+                NewDashboardRequest newDashboardRequest = new NewDashboardRequest();
+                newDashboardRequest.setDashboard(dashboard);
+                newDashboardRequest.setOverwrite(true);
+                final NewDashboardResponse newDasboardResponse = dashboardService.update(newDashboardRequest, true);
                 System.out.println(newDasboardResponse);
 
                 Dashboard dashboardUpdated = dashboardService.get(metadata.getUri()).getDashboard();
@@ -49,9 +53,12 @@ public class Main {
         final String title = "NewDashboard_" + UUID.randomUUID();
         newDashboard.setTitle(title);
         newDashboard.setOriginalTitle(title);
+        NewDashboardRequest newDashboardRequest = new NewDashboardRequest();
+        newDashboardRequest.setDashboard(newDashboard);
+        newDashboardRequest.setOverwrite(false);
         Gson gson = new Gson();
-        final String json = gson.toJson(newDashboard);
-        final NewDashboardResponse newDasboardResponse = dashboardService.create(newDashboard, false);
+        final String json = gson.toJson(newDashboardRequest);
+        final NewDashboardResponse newDasboardResponse = dashboardService.create(newDashboardRequest, false);
 
         // trying to get new dashboard
         List<DashboardMetadata> newDashboards = dashboardService.search(new HashMap<String, String>() {{

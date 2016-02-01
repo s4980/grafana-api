@@ -1,7 +1,7 @@
 package services;
 
-import domain.Dashboard;
 import domain.DashboardMetadata;
+import domain.NewDashboardRequest;
 import domain.NewDashboardResponse;
 import domain.SearchDashboardResponse;
 import factories.RestInterfaceFactory;
@@ -72,12 +72,12 @@ public class DashboardService {
         return false;
     }
 
-    public NewDashboardResponse update(Dashboard dashboard, boolean overwrite) {
+    public NewDashboardResponse update(NewDashboardRequest dashboardRequest, boolean overwrite) {
         NewDashboardResponse newDasboardResponse = new NewDashboardResponse();
         newDasboardResponse.setStatus("failed");
         try {
             //dashboard.setAdditionalProperty("overwrite", overwrite);
-            final Response<NewDashboardResponse> response = dashboardRest.create(dashboard).execute();
+            final Response<NewDashboardResponse> response = dashboardRest.create(dashboardRequest).execute();
             if (response.isSuccess()) {
                 return response.body();
             }
@@ -88,10 +88,10 @@ public class DashboardService {
         return newDasboardResponse;
     }
 
-    public NewDashboardResponse create(Dashboard dashboard, boolean overwrite) {
+    public NewDashboardResponse create(NewDashboardRequest dashboardRequest, boolean overwrite) {
         // To create new dashboard we need to pass dashboard with id = null
-        dashboard.setId(null);
-        return update(dashboard, overwrite);
+        dashboardRequest.getDashboard().setId(null);
+        return update(dashboardRequest, overwrite);
     }
 
 }

@@ -1,7 +1,7 @@
 package rest;
 
-import domain.Dashboard;
 import domain.DashboardMetadata;
+import domain.NewDashboardRequest;
 import domain.NewDashboardResponse;
 import domain.SearchDashboardResponse;
 import retrofit2.Call;
@@ -25,6 +25,6 @@ public interface DashboardRest {
             "Accept: application/json"
     })
     @POST("dashboards/db")
-    Call<NewDashboardResponse> create(@Body Dashboard dashboard);
+    Call<NewDashboardResponse> create(@Body NewDashboardRequest dashboard);
 
 }

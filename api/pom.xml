@@ -12,13 +12,15 @@
 
     <artifactId>api</artifactId>
     <packaging>jar</packaging>
+    <version>${parent.version}</version>
+    <description>Grafana api</description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.ziarnm</groupId>
-            <artifactId>commons</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.ziarnm</groupId>-->
+        <!--<artifactId>commons</artifactId>-->
+        <!--<version>${parent.version}</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
@@ -70,6 +72,13 @@
                 <groupId>org.jsonschema2pojo</groupId>
                 <artifactId>jsonschema2pojo-maven-plugin</artifactId>
                 <version>0.4.18</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.ziarnm</groupId>
+                        <artifactId>commons</artifactId>
+                        <version>${parent.version}</version>
+                    </dependency>
+                </dependencies>
                 <configuration>
                     <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
                     <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
@@ -78,7 +87,8 @@
                     <initializeCollections>true</initializeCollections>
                     <useCommonsLang3>true</useCommonsLang3>
                     <addCompileSourceRoot>true</addCompileSourceRoot>
-                    <!--<customAnnotator>annotators.Jackson2CustomAnnotator</customAnnotator>-->
+                    <annotationStyle>NONE</annotationStyle>
+                    <customAnnotator>annotators.Jackson2CustomAnnotator</customAnnotator>
                 </configuration>
                 <executions>
                     <execution>
