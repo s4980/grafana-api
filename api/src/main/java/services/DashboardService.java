@@ -1,6 +1,6 @@
 package services;
 
-import domain.DashboardMetadata;
+import domain.GetDashboardResponse;
 import domain.NewDashboardRequest;
 import domain.NewDashboardResponse;
 import domain.SearchDashboardResponse;
@@ -26,9 +26,9 @@ public class DashboardService {
         dashboardRest = retrofit.create(DashboardRest.class);
     }
 
-    public List<DashboardMetadata> search(Map<String, String> queryMap) {
+    public List<SearchDashboardResponse> search(Map<String, String> queryMap) {
         try {
-            Response<List<DashboardMetadata>> listResponse = dashboardRest.search(queryMap).execute();
+            Response<List<SearchDashboardResponse>> listResponse = dashboardRest.search(queryMap).execute();
             if (listResponse.isSuccess()) {
                 return listResponse.body();
             }
@@ -39,13 +39,13 @@ public class DashboardService {
         return Collections.emptyList();
     }
 
-    public List<DashboardMetadata> searchAll() {
+    public List<SearchDashboardResponse> searchAll() {
         return search(Collections.emptyMap());
     }
 
-    public SearchDashboardResponse get(String uri) {
+    public GetDashboardResponse get(String uri) {
         try {
-            final Response<SearchDashboardResponse> response = dashboardRest.get(uri).execute();
+            final Response<GetDashboardResponse> response = dashboardRest.get(uri).execute();
             if (response.isSuccess()) {
                 return response.body();
             }
@@ -55,7 +55,7 @@ public class DashboardService {
         return null;
     }
 
-    public SearchDashboardResponse getHomeDashboard() {
+    public GetDashboardResponse getHomeDashboard() {
         return get("home");
     }
 

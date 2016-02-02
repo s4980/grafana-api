@@ -1,6 +1,6 @@
 package rest;
 
-import domain.DashboardMetadata;
+import domain.GetDashboardResponse;
 import domain.NewDashboardRequest;
 import domain.NewDashboardResponse;
 import domain.SearchDashboardResponse;
@@ -13,10 +13,10 @@ import java.util.Map;
 public interface DashboardRest {
 
     @GET("search")
-    Call<List<DashboardMetadata>> search(@QueryMap Map<String, String> options);
+    Call<List<SearchDashboardResponse>> search(@QueryMap Map<String, String> options);
 
     @GET("dashboards/{slug}")
-    Call<SearchDashboardResponse> get(@Path("slug") String slug);
+    Call<GetDashboardResponse> get(@Path("slug") String slug);
 
     @DELETE("dashboards/{slug}")
     Call<String> delete(@Path("slug") String slug);

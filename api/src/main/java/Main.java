@@ -1,8 +1,8 @@
 import com.google.gson.Gson;
 import domain.Dashboard;
-import domain.DashboardMetadata;
 import domain.NewDashboardRequest;
 import domain.NewDashboardResponse;
+import domain.SearchDashboardResponse;
 import services.DashboardService;
 
 import java.util.HashMap;
@@ -21,16 +21,16 @@ public class Main {
 
         DashboardService dashboardService = new DashboardService(headers, "http://127.0.0.1:3000/api/");
 
-        List<DashboardMetadata> metadataList = dashboardService.searchAll();
-        metadataList.forEach(dashboardMetadata -> System.out.println(dashboardService.get(dashboardMetadata.getUri())));
+        List<SearchDashboardResponse> metadataList = dashboardService.searchAll();
+        metadataList.forEach(SearchDashboardResponse -> System.out.println(dashboardService.get(SearchDashboardResponse.getUri())));
 
 
-        List<DashboardMetadata> dashboards = dashboardService.search(new HashMap<String, String>() {{
+        List<SearchDashboardResponse> dashboards = dashboardService.search(new HashMap<String, String>() {{
             put("query", "Test_dashboard");
         }});
 
         if (!dashboards.isEmpty()) {
-            DashboardMetadata metadata = dashboards.get(0);
+            SearchDashboardResponse metadata = dashboards.get(0);
             final Dashboard dashboard = dashboardService.get(metadata.getUri()).getDashboard();
 
             if (dashboard != null) {
@@ -61,7 +61,7 @@ public class Main {
         final NewDashboardResponse newDasboardResponse = dashboardService.create(newDashboardRequest, false);
 
         // trying to get new dashboard
-        List<DashboardMetadata> newDashboards = dashboardService.search(new HashMap<String, String>() {{
+        List<SearchDashboardResponse> newDashboards = dashboardService.search(new HashMap<String, String>() {{
             put("query", title);
         }});
 

@@ -3,50 +3,30 @@
   "id": "/",
   "type": "object",
   "properties": {
-    "meta": {
-      "id": "meta",
-      "type": "object",
-      "properties": {
-        "isStarred": {
-          "id": "isStarred",
-          "type": "boolean"
-        },
-        "type": {
-          "id": "type",
-          "type": "string"
-        },
-        "canSave": {
-          "id": "canSave",
-          "type": "boolean"
-        },
-        "canEdit": {
-          "id": "canEdit",
-          "type": "boolean"
-        },
-        "canStar": {
-          "id": "canStar",
-          "type": "boolean"
-        },
-        "slug": {
-          "id": "slug",
-          "type": "string"
-        },
-        "expires": {
-          "id": "expires",
-          "type": "string"
-        },
-        "created": {
-          "id": "created",
-          "type": "string"
-        },
-        "updated": {
-          "id": "updated",
-          "type": "string"
-        }
-      }
+    "id": {
+      "id": "id",
+      "type": "integer"
     },
-    "dashboard": {
-      "$ref": "definitions.json#/definitions/dashboard"
+    "title": {
+      "id": "title",
+      "type": "string"
+    },
+    "uri": {
+      "id": "uri",
+      "type": "string"
+    },
+    "type": {
+      "id": "type",
+      "type": "string"
+    },
+    "tags": {
+      "id": "tags",
+      "type": "array",
+      "items": {}
+    },
+    "isStarred": {
+      "id": "isStarred",
+      "type": "boolean"
     }
   }
 }
