@@ -5,21 +5,19 @@ import okhttp3.OkHttpClient;
 import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
 
-import java.util.Map;
-
 /**
  * Created by MZ on 2016-01-30.
  */
 public class RestInterfaceFactory {
 
-    public static Retrofit getInterface(Map<String, String> headers, String apiUrl) {
+    public static Retrofit getInterface(Authorizator authorizator) {
         OkHttpClient client = new OkHttpClient.Builder()
-                .addNetworkInterceptor(new HeaderInterceptor(headers))
+                .addNetworkInterceptor(new HeaderInterceptor(authorizator.getHeaders()))
                 .build();
 
         final GsonConverterFactory gsonConverterFactory = GsonConverterFactory.create();
         return new Retrofit.Builder()
-                .baseUrl(apiUrl)
+                .baseUrl(authorizator.getApiUrl())
                 .addConverterFactory(gsonConverterFactory)
                 .client(client)
                 .build();

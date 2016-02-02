@@ -1,8 +1,8 @@
 import com.google.gson.Gson;
-import domain.Dashboard;
-import domain.NewDashboardRequest;
-import domain.NewDashboardResponse;
-import domain.SearchDashboardResponse;
+import domain.*;
+import factories.AuthenticationFactory;
+import factories.Authorizator;
+import org.joda.time.DateTime;
 import services.DashboardService;
 
 import java.util.HashMap;
@@ -18,8 +18,9 @@ public class Main {
     public static void main(String[] args) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", "Bearer " + "eyJrIjoiOVN5eU1EOEc2dlgwNlhEZVoyNUlPaDg5TWlsSlA1V0giLCJuIjoidGVzdDEiLCJpZCI6MX0=");
+        final Authorizator authorizator = AuthenticationFactory.getInstance().getAuthorizator(headers, "http://127.0.0.1:3000/api/");
+        DashboardService dashboardService = new DashboardService(authorizator);
 
-        DashboardService dashboardService = new DashboardService(headers, "http://127.0.0.1:3000/api/");
 
         List<SearchDashboardResponse> metadataList = dashboardService.searchAll();
         metadataList.forEach(SearchDashboardResponse -> System.out.println(dashboardService.get(SearchDashboardResponse.getUri())));
@@ -34,15 +35,26 @@ public class Main {
             final Dashboard dashboard = dashboardService.get(metadata.getUri()).getDashboard();
 
             if (dashboard != null) {
+                // Manipulating time range
+                final Time dashboardTime = dashboard.getTime();
+                DateTime from = new DateTime();
+                DateTime to = new DateTime();
+                dashboardTime.setFrom(from.minusHours(1).toString());
+                dashboardTime.setTo(to.plusDays(3).toString());
+
+                // Manipulating dashboard version
                 Integer version = dashboard.getVersion();
                 System.out.printf("Version before updating dashboard %s with override flag: %s\n", dashboard.getTitle(), version);
                 dashboard.setVersion(++version);
+
+                // Updating dashboard with new values
                 NewDashboardRequest newDashboardRequest = new NewDashboardRequest();
                 newDashboardRequest.setDashboard(dashboard);
                 newDashboardRequest.setOverwrite(true);
                 final NewDashboardResponse newDasboardResponse = dashboardService.update(newDashboardRequest, true);
                 System.out.println(newDasboardResponse);
 
+                // Querying dashboard and confirming successful update
                 Dashboard dashboardUpdated = dashboardService.get(metadata.getUri()).getDashboard();
                 System.out.printf("Version after updating dashboard %s: %s\n", dashboardUpdated.getTitle(), version);
             }

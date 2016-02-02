@@ -16,11 +16,6 @@
     <description>Grafana api</description>
 
     <dependencies>
-        <!--<dependency>-->
-        <!--<groupId>com.ziarnm</groupId>-->
-        <!--<artifactId>commons</artifactId>-->
-        <!--<version>${parent.version}</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
@@ -50,6 +45,18 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+        <!-- Unit tests -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
         </dependency>
     </dependencies>
     <build>

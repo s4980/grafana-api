@@ -4,6 +4,7 @@ import domain.GetDashboardResponse;
 import domain.NewDashboardRequest;
 import domain.NewDashboardResponse;
 import domain.SearchDashboardResponse;
+import factories.Authorizator;
 import factories.RestInterfaceFactory;
 import org.apache.commons.lang.StringUtils;
 import rest.DashboardRest;
@@ -18,12 +19,13 @@ import java.util.Map;
 /**
  * Created by MZ on 2016-01-30.
  */
-public class DashboardService {
+public class DashboardService extends AbstractService {
     private DashboardRest dashboardRest;
 
-    public DashboardService(Map<String, String> headers, String apiUrl) {
-        Retrofit retrofit = RestInterfaceFactory.getInterface(headers, apiUrl);
-        dashboardRest = retrofit.create(DashboardRest.class);
+    public DashboardService(Authorizator authorizator) {
+        Retrofit retrofit = RestInterfaceFactory.getInterface(authorizator);
+        this.dashboardRest = retrofit.create(DashboardRest.class);
+        this.authorizator = authorizator;
     }
 
     public List<SearchDashboardResponse> search(Map<String, String> queryMap) {
