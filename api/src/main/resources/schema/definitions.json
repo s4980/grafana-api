@@ -57,10 +57,6 @@
           "id": "isDefault",
           "type": "boolean"
         },
-        "id": {
-          "id": "id",
-          "type": "integer"
-        },
         "title": {
           "id": "title",
           "type": "string"

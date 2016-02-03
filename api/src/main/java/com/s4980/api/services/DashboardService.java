@@ -1,13 +1,13 @@
-package services;
+package com.s4980.api.services;
 
-import domain.GetDashboardResponse;
-import domain.NewDashboardRequest;
-import domain.NewDashboardResponse;
-import domain.SearchDashboardResponse;
-import factories.Authorizator;
-import factories.RestInterfaceFactory;
+import com.s4980.domain.GetDashboardResponse;
+import com.s4980.domain.NewDashboardRequest;
+import com.s4980.domain.NewDashboardResponse;
+import com.s4980.domain.SearchDashboardResponse;
+import com.s4980.api.factories.Authorizator;
+import com.s4980.api.factories.RestInterfaceFactory;
 import org.apache.commons.lang.StringUtils;
-import rest.DashboardRest;
+import com.s4980.api.rest.DashboardRest;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 

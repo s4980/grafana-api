@@ -1,4 +1,4 @@
-package factories;
+package com.s4980.api.factories;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

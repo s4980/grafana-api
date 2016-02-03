@@ -1,13 +1,12 @@
 import com.google.gson.Gson;
-import domain.*;
-import factories.AuthenticationFactory;
-import factories.Authorizator;
+import com.s4980.domain.*;
+import com.s4980.api.factories.AuthenticationFactory;
+import com.s4980.api.factories.Authorizator;
 import org.joda.time.DateTime;
-import services.DashboardService;
+import com.s4980.api.services.DashboardService;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -16,9 +15,7 @@ import java.util.UUID;
 public class Main {
 
     public static void main(String[] args) {
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Authorization", "Bearer " + "eyJrIjoiOVN5eU1EOEc2dlgwNlhEZVoyNUlPaDg5TWlsSlA1V0giLCJuIjoidGVzdDEiLCJpZCI6MX0=");
-        final Authorizator authorizator = AuthenticationFactory.getInstance().getAuthorizator(headers, "http://127.0.0.1:3000/api/");
+        final Authorizator authorizator = AuthenticationFactory.getInstance().getTokenAuthorizator("eyJrIjoiOVN5eU1EOEc2dlgwNlhEZVoyNUlPaDg5TWlsSlA1V0giLCJuIjoidGVzdDEiLCJpZCI6MX0=", "http://127.0.0.1:3000/api/");
         DashboardService dashboardService = new DashboardService(authorizator);
 
 

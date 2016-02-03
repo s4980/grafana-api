@@ -1,6 +1,6 @@
-package services;
+package com.s4980.api.services;
 
-import factories.Authorizator;
+import com.s4980.api.factories.Authorizator;
 import lombok.Getter;
 
 /**

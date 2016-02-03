@@ -1,6 +1,6 @@
-package rest;
+package com.s4980.api.rest;
 
-import domain.Datasource;
+import com.s4980.domain.Datasource;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

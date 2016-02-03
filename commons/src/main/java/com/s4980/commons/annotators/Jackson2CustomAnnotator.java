@@ -1,4 +1,4 @@
-package annotators;
+package com.s4980.commons.annotators;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.JsonNode;

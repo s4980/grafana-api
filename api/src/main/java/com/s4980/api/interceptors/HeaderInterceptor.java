@@ -1,4 +1,4 @@
-package interceptors;
+package com.s4980.api.interceptors;
 
 import lombok.AllArgsConstructor;
 import okhttp3.Interceptor;

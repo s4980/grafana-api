@@ -1,6 +1,6 @@
-package factories;
+package com.s4980.api.factories;
 
-import interceptors.HeaderInterceptor;
+import com.s4980.api.interceptors.HeaderInterceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
