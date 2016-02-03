@@ -1,6 +1,6 @@
-package com.s4980.api.services;
+package com.s4980.grafana.api.rest.services;
 
-import com.s4980.api.factories.Authorizator;
+import com.s4980.grafana.api.rest.factories.Authorizator;
 import lombok.Getter;
 
 /**

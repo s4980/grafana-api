@@ -1,4 +1,4 @@
-package com.s4980.api.factories;
+package com.s4980.grafana.api.rest.factories;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

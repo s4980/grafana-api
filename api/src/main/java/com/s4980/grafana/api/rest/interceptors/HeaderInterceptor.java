@@ -1,4 +1,4 @@
-package com.s4980.api.interceptors;
+package com.s4980.grafana.api.rest.interceptors;
 
 import lombok.AllArgsConstructor;
 import okhttp3.Interceptor;
@@ -19,7 +19,10 @@ public class HeaderInterceptor implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
 
         final Request.Builder builder = chain.request().newBuilder();
-        headers.keySet().forEach(key -> builder.header(key, headers.get(key)));
+        for (String key : headers.keySet()) {
+            builder.header(key, headers.get(key));
+        }
+
         return chain.proceed(builder.build());
     }
 }

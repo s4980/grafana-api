@@ -1,13 +1,11 @@
-package com.s4980.api.services;
+package com.s4980.grafana.api.rest.services;
 
-import com.s4980.domain.GetDashboardResponse;
-import com.s4980.domain.NewDashboardRequest;
-import com.s4980.domain.NewDashboardResponse;
-import com.s4980.domain.SearchDashboardResponse;
-import com.s4980.api.factories.Authorizator;
-import com.s4980.api.factories.RestInterfaceFactory;
+import com.s4980.grafana.api.commons.domain.*;
+import com.s4980.grafana.api.rest.factories.Authorizator;
+import com.s4980.grafana.api.rest.factories.RestInterfaceFactory;
+import com.s4980.grafana.api.rest.rest.DashboardRest;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import com.s4980.api.rest.DashboardRest;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
@@ -19,6 +17,7 @@ import java.util.Map;
 /**
  * Created by MZ on 2016-01-30.
  */
+@Slf4j
 public class DashboardService extends AbstractService {
     private DashboardRest dashboardRest;
 
@@ -35,29 +34,29 @@ public class DashboardService extends AbstractService {
                 return listResponse.body();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Error searching for dashboard", e);
         }
 
         return Collections.emptyList();
     }
 
     public List<SearchDashboardResponse> searchAll() {
-        return search(Collections.emptyMap());
+        return search(Collections.<String, String>emptyMap());
     }
 
-    public GetDashboardResponse get(String uri) {
+    public Dashboard get(String uri) {
         try {
             final Response<GetDashboardResponse> response = dashboardRest.get(uri).execute();
             if (response.isSuccess()) {
-                return response.body();
+                return response.body().getDashboard();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Error searching for dashboards", e);
         }
         return null;
     }
 
-    public GetDashboardResponse getHomeDashboard() {
+    public Dashboard getHomeDashboard() {
         return get("home");
     }
 
@@ -69,31 +68,36 @@ public class DashboardService extends AbstractService {
                 return StringUtils.contains(response.body(), uri);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Error deleting dashboard", e);
         }
         return false;
     }
 
-    public NewDashboardResponse update(NewDashboardRequest dashboardRequest, boolean overwrite) {
-        NewDashboardResponse newDasboardResponse = new NewDashboardResponse();
-        newDasboardResponse.setStatus("failed");
-        try {
-            //dashboard.setAdditionalProperty("overwrite", overwrite);
-            final Response<NewDashboardResponse> response = dashboardRest.create(dashboardRequest).execute();
-            if (response.isSuccess()) {
-                return response.body();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return newDasboardResponse;
+    public boolean update(Dashboard dashboard) {
+        NewDashboardRequest request = new NewDashboardRequest();
+        request.setDashboard(dashboard);
+        request.setOverwrite(true);
+        final Response<NewDashboardResponse> response = sendNewDashboardRequest(request);
+        return null != response && response.isSuccess();
     }
 
-    public NewDashboardResponse create(NewDashboardRequest dashboardRequest, boolean overwrite) {
+    public boolean create(Dashboard dashboard) {
+        NewDashboardRequest request = new NewDashboardRequest();
         // To create new dashboard we need to pass dashboard with id = null
-        dashboardRequest.getDashboard().setId(null);
-        return update(dashboardRequest, overwrite);
+        dashboard.setId(null);
+        request.setDashboard(dashboard);
+        request.setOverwrite(false);
+        final Response<NewDashboardResponse> response = sendNewDashboardRequest(request);
+        return null != response && response.isSuccess();
     }
 
+    private Response<NewDashboardResponse> sendNewDashboardRequest(NewDashboardRequest request) {
+        try {
+            final Response<NewDashboardResponse> response = dashboardRest.create(request).execute();
+            return response;
+        } catch (IOException e) {
+            log.error("Error sending NewDashboardRequest", e);
+            return null;
+        }
+    }
 }

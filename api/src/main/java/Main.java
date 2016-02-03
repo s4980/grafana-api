@@ -1,21 +1,10 @@
-import com.google.gson.Gson;
-import com.s4980.domain.*;
-import com.s4980.api.factories.AuthenticationFactory;
-import com.s4980.api.factories.Authorizator;
-import org.joda.time.DateTime;
-import com.s4980.api.services.DashboardService;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
-
 /**
  * Created by MZ on 2016-01-30.
  */
 public class Main {
 
     public static void main(String[] args) {
-        final Authorizator authorizator = AuthenticationFactory.getInstance().getTokenAuthorizator("eyJrIjoiOVN5eU1EOEc2dlgwNlhEZVoyNUlPaDg5TWlsSlA1V0giLCJuIjoidGVzdDEiLCJpZCI6MX0=", "http://127.0.0.1:3000/api/");
+        /*final Authorizator authorizator = AuthorizationFactory.getInstance().getTokenAuthorizator("eyJrIjoiOVN5eU1EOEc2dlgwNlhEZVoyNUlPaDg5TWlsSlA1V0giLCJuIjoidGVzdDEiLCJpZCI6MX0=", "http://127.0.0.1:3000/api/");
         DashboardService dashboardService = new DashboardService(authorizator);
 
 
@@ -76,7 +65,7 @@ public class Main {
 
         if (!newDashboards.isEmpty()) {
             System.out.println(dashboardService.get(newDashboards.get(0).getUri()).getDashboard());
-        }
+        }*/
     }
 
 }

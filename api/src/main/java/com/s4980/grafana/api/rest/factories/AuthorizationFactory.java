@@ -1,4 +1,4 @@
-package com.s4980.api.factories;
+package com.s4980.grafana.api.rest.factories;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -11,13 +11,13 @@ import java.util.Map;
  * Created by MZ on 2016-02-02.
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class AuthenticationFactory {
+public class AuthorizationFactory {
 
-    private static AuthenticationFactory INSTANCE;
+    private static AuthorizationFactory INSTANCE;
 
-    public static AuthenticationFactory getInstance() {
+    public static AuthorizationFactory getInstance() {
         if (null == INSTANCE) {
-            INSTANCE = new AuthenticationFactory();
+            INSTANCE = new AuthorizationFactory();
         }
         return INSTANCE;
     }

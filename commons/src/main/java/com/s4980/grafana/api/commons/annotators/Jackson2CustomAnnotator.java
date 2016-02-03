@@ -1,4 +1,4 @@
-package com.s4980.commons.annotators;
+package com.s4980.grafana.api.commons.annotators;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -25,7 +25,6 @@ public class Jackson2CustomAnnotator extends AbstractAnnotator {
     @Override
     public void propertyInclusion(JDefinedClass clazz, JsonNode schema) {
         clazz.annotate(JsonInclude.class).param("value", JsonInclude.Include.ALWAYS);
-        clazz.annotate(JsonTypeInfo.class).param("use", JsonTypeInfo.Id.CLASS).param("include", JsonTypeInfo.As.WRAPPER_OBJECT);
     }
 
     @Override
