@@ -316,6 +316,18 @@
                               "additionalProperties": false
                             }
                           },
+                          "measurement": {
+                            "id": "measurement",
+                            "type": "string"
+                          },
+                          "query": {
+                            "id": "query",
+                            "type": "string"
+                          },
+                          "rawQuery": {
+                            "id": "rawQuery",
+                            "type": "boolean"
+                          },
                           "refId": {
                             "id": "refId",
                             "type": "string"
