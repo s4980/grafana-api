@@ -272,7 +272,7 @@
                     },
                     "span": {
                       "id": "span",
-                      "type": "integer"
+                      "type": "number"
                     },
                     "stack": {
                       "id": "stack",

@@ -3,9 +3,9 @@ package com.s4980.grafana.api.rest.factories;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+import javax.xml.bind.DatatypeConverter;
 
 /**
  * Created by MZ on 2016-02-02.
@@ -23,7 +23,7 @@ public class AuthorizationFactory {
     }
 
     public Authorizator getPasswordAuthorizator(String username, String password, String apiUrl) {
-        final String encodeToString = Base64.getEncoder().encodeToString(String.format("%s:%s", username, password).getBytes());
+        final String encodeToString = DatatypeConverter.printBase64Binary(String.format("%s:%s", username, password).getBytes());
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", String.format("Basic %s", encodeToString));
         return new Authorizator(headers, apiUrl);
