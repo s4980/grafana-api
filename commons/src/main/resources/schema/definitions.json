@@ -228,9 +228,28 @@
                         "values": {
                           "id": "values",
                           "type": "boolean"
+                        },
+                        "hideEmpty": {
+                          "id": "hideEmpty",
+                          "type": "boolean"
+                        },
+                        "hideZero": {
+                          "id": "hideZero",
+                          "type": "boolean"
                         }
                       },
-                      "additionalProperties": false
+                      "additionalProperties": false,
+                      "required": [
+                        "avg",
+                        "current",
+                        "max",
+                        "min",
+                        "show",
+                        "total",
+                        "values",
+                        "hideEmpty",
+                        "hideZero"
+                      ]
                     },
                     "lines": {
                       "id": "lines",
@@ -377,6 +396,11 @@
                       "id": "timeShift",
                       "type": "null"
                     },
+                    "decimals": {
+                      "id": "decimals",
+                      "type": "integer",
+                      "default": 1
+                    },
                     "title": {
                       "id": "title",
                       "type": "string"
@@ -417,7 +441,11 @@
                       }
                     }
                   },
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "required": [
+                    "legend",
+                    "decimals"
+                  ]
                 }
               },
               "title": {
