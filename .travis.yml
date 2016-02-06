@@ -1,2 +1,8 @@
-language: java
-jdk: oraclejdk7
+language:
+  java
+jdk:
+  oraclejdk7
+before_install:
+  - pip install --user codecov
+after_success:
+  - codecov
