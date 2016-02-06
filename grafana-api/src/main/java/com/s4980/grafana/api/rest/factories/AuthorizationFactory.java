@@ -3,9 +3,9 @@ package com.s4980.grafana.api.rest.factories;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import javax.xml.bind.DatatypeConverter;
 import java.util.HashMap;
 import java.util.Map;
-import javax.xml.bind.DatatypeConverter;
 
 /**
  * Created by MZ on 2016-02-02.
