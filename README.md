@@ -1,3 +1,6 @@
+ **Build**      | [![](https://travis-ci.org/s4980/grafana-api.svg)](https://travis-ci.org/s4980/grafana-api) 
+ :--------- | :---: 
+ **Repository** | [![](https://jitpack.io/v/s4980/grafana-api.svg)](https://jitpack.io/#s4980/grafana-api) 
 # Grafana-api
 Grafana REST API library
 
@@ -34,5 +37,3 @@ dependencies {
   compile 'com.github.s4980:grafana-api:v0.1.1'
 }
 ```
-
-Grafana-api availability on Jitpack: [![](https://jitpack.io/v/s4980/grafana-api.svg)](https://jitpack.io/#s4980/grafana-api)
