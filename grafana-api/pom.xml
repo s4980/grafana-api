@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.s4980.grafana</groupId>
         <artifactId>parent</artifactId>
-        <version>${grafana.project.version}</version>
+        <version>0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
