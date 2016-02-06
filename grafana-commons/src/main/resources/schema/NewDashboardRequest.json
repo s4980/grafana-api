@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "/",
+  "id": "newDashboardRequest",
   "type": "object",
   "properties": {
     "dashboard": {
@@ -10,5 +10,10 @@
       "id": "overwrite",
       "type": "boolean"
     }
-  }
+  },
+  "additionalProperties": false,
+  "required": [
+    "dashboard",
+    "overwrite"
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "/",
+  "id": "newDashboardResponse",
   "type": "object",
   "properties": {
     "slug": {
@@ -15,5 +15,11 @@
       "id": "version",
       "type": "integer"
     }
-  }
+  },
+  "additionalProperties": false,
+  "required": [
+    "slug",
+    "status",
+    "version"
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "/",
+  "id": "searchDashboardResponse",
   "type": "object",
   "properties": {
     "id": {
@@ -28,5 +28,14 @@
       "id": "isStarred",
       "type": "boolean"
     }
-  }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "uri",
+    "type",
+    "tags",
+    "isStarred"
+  ]
 }
