@@ -6,12 +6,12 @@
 
     <groupId>com.s4980.grafana</groupId>
     <artifactId>parent</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Grafana Api (Parent)</name>
     <description>Grafana Api java library</description>
-    <url>https://github.com/s4980/Grafana-api/</url>
+    <url>https://github.com/s4980/grafana-api/</url>
 
     <modules>
         <module>grafana-commons</module>
