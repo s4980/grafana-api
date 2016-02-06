@@ -16,6 +16,3 @@
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
 
-# IntelliJ
-*.iml
-.idea/*
