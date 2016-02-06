@@ -1,5 +1,6 @@
-Build: [![](https://travis-ci.org/s4980/grafana-api.svg)](https://travis-ci.org/s4980)
-Repository: [![](https://jitpack.io/v/s4980/grafana-api.svg)](https://jitpack.io/#s4980/grafana-api)
+Build: [![](https://travis-ci.org/s4980/grafana-api.svg)](https://travis-ci.org/s4980) 
+
+Repository: [![](https://jitpack.io/v/s4980/grafana-api.svg)](https://jitpack.io/#s4980/grafana-api) 
 # Grafana-api
 Grafana REST API library
 
