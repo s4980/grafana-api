@@ -57,7 +57,7 @@
     },
     "jsonData": {
       "id": "jsonData",
-      "type": "null"
+      "type": "string"
     }
   },
   "additionalProperties": false,

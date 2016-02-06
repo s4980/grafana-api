@@ -6,7 +6,7 @@
 
     <groupId>com.s4980.grafana</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${grafana.project.version}</version>
     <packaging>pom</packaging>
 
     <name>Grafana Api (Parent)</name>
@@ -19,6 +19,7 @@
     </modules>
 
     <properties>
+        <grafana.project.version>0.1-SNAPSHOT</grafana.project.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Compilation -->
