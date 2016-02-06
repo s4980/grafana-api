@@ -19,7 +19,7 @@
         <dependency>
             <groupId>com.s4980.grafana</groupId>
             <artifactId>grafana-commons</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
