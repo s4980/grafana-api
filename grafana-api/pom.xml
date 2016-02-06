@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>grafana-api</artifactId>
-    <name>Grafana Commons</name>
+    <name>Grafana Api</name>
     <description>Grafana Api Module</description>
 
     <dependencies>
