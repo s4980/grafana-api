@@ -1,7 +1,7 @@
 language: java
 jdk: oraclejdk7
-sudo: false # faster builds
+#sudo: false # faster builds
 before_install:
   - pip install --user codecov
 after_success:
-  - codecov
+  - codecov -t 46e69b95-4dec-4471-92fe-cdcce3ca9b1e
