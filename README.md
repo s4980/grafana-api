@@ -6,7 +6,7 @@ Grafana REST API library
 
 ## Grafana-api in public repository
 To use library add Jitpack repository and grafana-api library to your configuration file
-* For maven update your pom.xml:
+* For maven update your **pom.xml**:
 ```xml
 <repositories>
     <repository>
@@ -24,7 +24,7 @@ To use library add Jitpack repository and grafana-api library to your configurat
 </dependencies>
 ```
 
-* For gradle update your 
+* For gradle update your **build.gradle**:
 ```gradle
 allprojects {
 	repositories {
