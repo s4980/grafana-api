@@ -236,6 +236,10 @@
                         "hideZero": {
                           "id": "hideZero",
                           "type": "boolean"
+                        },
+                        "alignAsTable": {
+                          "id": "alignAsTable",
+                          "type": "boolean"
                         }
                       },
                       "additionalProperties": false,
@@ -248,7 +252,8 @@
                         "total",
                         "values",
                         "hideEmpty",
-                        "hideZero"
+                        "hideZero",
+                        "alignAsTable"
                       ]
                     },
                     "lines": {
