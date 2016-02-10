@@ -19,7 +19,7 @@ To use library add Jitpack repository and grafana-api library to your configurat
     <dependency>
         <groupId>com.github.s4980</groupId>
         <artifactId>grafana-api</artifactId>
-        <version>v0.1.1</version>
+        <version>v0.1.2</version>
     </dependency>
 </dependencies>
 ```
@@ -34,6 +34,6 @@ allprojects {
 }
 
 dependencies {
-  compile 'com.github.s4980:grafana-api:v0.1.1'
+  compile 'com.github.s4980:grafana-api:v0.1.2'
 }
 ```
