@@ -54,7 +54,7 @@
         <jackson-databind.version>2.7.0</jackson-databind.version>
         <joda-time.version>2.9.2</joda-time.version>
         <maven.jacoco.version>0.5.8.201207111220</maven.jacoco.version>
-        <maven.coveralls.version>2.2.0</maven.coveralls.version>
+        <maven.coveralls.version>4.1.0</maven.coveralls.version>
 
         <!-- Logging -->
         <sl4j.version>1.7.14</sl4j.version>
@@ -192,6 +192,11 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+                <version>${maven.coveralls.version}</version>
             </plugin>
         </plugins>
     </build>
