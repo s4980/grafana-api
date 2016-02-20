@@ -1,6 +1,8 @@
- **Build**      | [![](https://travis-ci.org/s4980/grafana-api.svg)](https://travis-ci.org/s4980/grafana-api) 
+ **Build**      | [![Build Status](https://travis-ci.org/s4980/grafana-api.svg)](https://travis-ci.org/s4980/grafana-api) 
  :--------- | :---: 
- **Repository** | [![](https://jitpack.io/v/s4980/grafana-api.svg)](https://jitpack.io/#s4980/grafana-api) 
+ **Repository** | [![Repository](https://jitpack.io/v/s4980/grafana-api.svg)](https://jitpack.io/#s4980/grafana-api) 
+ :--------- | :---:
+ **Coverage**  | [![Coverage Status](https://coveralls.io/repos/github/s4980/grafana-api/badge.svg?branch=master)](https://coveralls.io/github/s4980/grafana-api?branch=master)
 # Grafana-api
 Grafana REST API library
 
