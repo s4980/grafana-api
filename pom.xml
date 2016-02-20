@@ -45,6 +45,12 @@
         <!-- Maven -->
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssa</maven.build.timestamp.format>
         <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
+        <maven.surefire.plugin.version>2.12.4</maven.surefire.plugin.version>
+        <maven.release.plugin.version>2.5</maven.release.plugin.version>
+        <maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
+        <maven.jacoco.plugin.version>0.5.8.201207111220</maven.jacoco.plugin.version>
+        <maven.coveralls.plugin.version>4.1.0</maven.coveralls.plugin.version>
 
         <!-- Dependencies -->
         <retrofit2.version>2.0.0-beta3</retrofit2.version>
@@ -53,8 +59,6 @@
         <commons-codec.version>1.10</commons-codec.version>
         <jackson-databind.version>2.7.0</jackson-databind.version>
         <joda-time.version>2.9.2</joda-time.version>
-        <maven.jacoco.version>0.5.8.201207111220</maven.jacoco.version>
-        <maven.coveralls.version>4.1.0</maven.coveralls.version>
 
         <!-- Logging -->
         <sl4j.version>1.7.14</sl4j.version>
@@ -137,7 +141,7 @@
             <plugins>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.2</version>
+                    <version>${maven.compiler.plugin.version}</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
@@ -147,7 +151,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.12.4</version>
+                    <version>${maven.surefire.plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -155,7 +159,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5</version>
+                <version>${maven.release.plugin.version}</version>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
@@ -163,7 +167,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.3</version>
+                <version>${maven.javadoc.plugin.version}</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -177,7 +181,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${maven.jacoco.version}</version>
+                <version>${maven.jacoco.plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -196,7 +200,7 @@
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
-                <version>${maven.coveralls.version}</version>
+                <version>${maven.coveralls.plugin.version}</version>
             </plugin>
         </plugins>
     </build>
