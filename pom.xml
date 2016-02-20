@@ -12,6 +12,24 @@
     <name>Grafana Api (Parent)</name>
     <description>Grafana Api java library</description>
     <url>https://github.com/s4980/grafana-api/</url>
+    <inceptionYear>2016</inceptionYear>
+
+    <developers>
+        <developer>
+            <name>Michał Ziarnik</name>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/s4980/grafana-api.git</connection>
+        <developerConnection>scm:git:git://github.com/s4980/grafana-api.git</developerConnection>
+        <url>https://github.com/s4980/grafana-api.git</url>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/s4980/grafana-api/issues</url>
+    </issueManagement>
 
     <modules>
         <module>grafana-commons</module>
@@ -24,6 +42,10 @@
         <!-- Compilation -->
         <java.version>1.7</java.version>
 
+        <!-- Maven -->
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssa</maven.build.timestamp.format>
+        <timestamp>${maven.build.timestamp}</timestamp>
+
         <!-- Dependencies -->
         <retrofit2.version>2.0.0-beta3</retrofit2.version>
         <lombok.version>1.16.6</lombok.version>
@@ -31,6 +53,8 @@
         <commons-codec.version>1.10</commons-codec.version>
         <jackson-databind.version>2.7.0</jackson-databind.version>
         <joda-time.version>2.9.2</joda-time.version>
+        <maven.jacoco.version>0.5.8.201207111220</maven.jacoco.version>
+        <maven.coveralls.version>2.2.0</maven.coveralls.version>
 
         <!-- Logging -->
         <sl4j.version>1.7.14</sl4j.version>
@@ -43,11 +67,6 @@
         <!-- Test Dependencies -->
         <junit.version>4.12</junit.version>
     </properties>
-
-    <issueManagement>
-        <system>GitHub Issues</system>
-        <url>https://github.com/s4980/grafana-api/issues</url>
-    </issueManagement>
 
     <dependencyManagement>
         <dependencies>
@@ -158,7 +177,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.5.8.201207111220</version>
+                <version>${maven.jacoco.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -176,4 +195,30 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>travis</id>
+            <activation>
+                <property>
+                    <name>env.TRAVIS</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${maven.jacoco.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.eluder.coveralls</groupId>
+                        <artifactId>coveralls-maven-plugin</artifactId>
+                        <version>${maven.coveralls.version}</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
