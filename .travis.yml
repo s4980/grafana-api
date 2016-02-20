@@ -4,5 +4,5 @@ jdk: oraclejdk7
 before_install:
   - pip install --user codecov
 after_success:
-  - codecov -t 46e69b95-4dec-4471-92fe-cdcce3ca9b1e
+  #- codecov -t 46e69b95-4dec-4471-92fe-cdcce3ca9b1e
   - mvn clean test jacoco:report coveralls:report -DrepoToken=9hnjmbff3dHmCLl6Al5wZcerdKJvF8y81
